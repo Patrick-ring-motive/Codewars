@@ -1,5 +1,4 @@
-object Static: 
-    val engine=new javax.script.ScriptEngineManager().getEngineByName("nashorn");
+object Static{val engine=new javax.script.ScriptEngineManager().getEngineByName("nashorn");}
 def solveRunes(runes: String): Int = {   
         return Static.engine.eval("""
         
