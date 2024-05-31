@@ -14,5 +14,4 @@ function solveExpression(exp) {
 solveExpression('"""+runes+"""');
 
 
-    """).toString().toInt;
-}
+    """).toString().toInt;}
