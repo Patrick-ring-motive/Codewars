@@ -1,10 +1,4 @@
-try:
-    import js2py
-except:
-    import subprocess
-    import sys
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "js2py"])
-    import js2py
+import subprocess,sys;subprocess.check_call([sys.executable,"-Wignore","-u","-m","pip","-q","install","--no-clean","js2py"]);import js2py as engine
 def solution(string):
     return js2py.eval_js("""
     
