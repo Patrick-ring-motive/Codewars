@@ -1,4 +1,4 @@
-import subprocess,sys;subprocess.check_call([sys.executable,"-Wignore","-u","-m","pip","-q","install","--no-clean","js2py"]);import js2py as engine
+import subprocess,sys;subprocess.check_call([sys.executable,"-Wignore","-u","-m","pip","-q","--disable-pip-version-check","install","--no-clean","js2py"]);import js2py as engine
 def solution(string):
     return js2py.eval_js("""
     
