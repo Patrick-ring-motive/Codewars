@@ -8,4 +8,4 @@ class Kata {
         }
         noSpace('${str}');
         
-    """.replaceAll(/(^|[^a-zA-Z0-9])function/,'$1def'))).toString();}}
+    """.replaceAll(/(^|[^a-zA-Z0-9])function/,'$1def')).toString();}}
