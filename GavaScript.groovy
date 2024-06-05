@@ -18,8 +18,8 @@ class EvenOdd {
 
        
 
-    """.replaceAll(/(^|[^a-zA-Z0-9])function ([ ]*[a-zA-Z])/,'$1def $2')
-       .replaceAll(/(^|[^a-zA-Z0-9])var /,'$1static def ')
+    """.replaceAll(/(^|[^a-zA-Z0-9])function\s+([a-zA-Z_]\w*)\s*\(/,'$1def $2')
+       .replaceAll(/(^|[^a-zA-Z0-9])var\s/,'$1static def ')
        .replaceAll(/(^|[^a-zA-Z0-9])let /,'$1def ')
        .replaceAll(/(^|[^a-zA-Z0-9])const /,'$1final def ')
        .replaceAll(/=>/,'->')
