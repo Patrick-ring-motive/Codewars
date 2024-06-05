@@ -3,9 +3,9 @@ class Kata {
     static final noSpace(String str) {
         return engine.eval("""
         
-        def noSpace(String str){
+        function noSpace(String str){
           return str.replaceAll(' ','')
         }
         noSpace('${str}');
         
-    """).toString();}}
+    """.replaceAll(/(^|[^a-zA-Z0-9])function/,'$1def'))).toString();}}
