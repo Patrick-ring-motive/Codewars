@@ -18,7 +18,8 @@ class EvenOdd {
 
        
 
-    """.replaceAll(/(^|[^a-zA-Z0-9])function\s+([a-zA-Z_]\w*)\s*\(/,'$1def $2')
+    """.replaceAll(/(^|[^a-zA-Z0-9])function\s+([a-zA-Z_]\w*)\s*\(/,'$1def $2(')
+       .replaceAll(/(^|[^a-zA-Z0-9])function\s+\(/,'$1def lambda'+System.nanoTime()+'(')
        .replaceAll(/(^|[^a-zA-Z0-9])var\s/,'$1static def ')
        .replaceAll(/(^|[^a-zA-Z0-9])let\s/,'$1def ')
        .replaceAll(/(^|[^a-zA-Z0-9])const\s/,'$1final def ')
