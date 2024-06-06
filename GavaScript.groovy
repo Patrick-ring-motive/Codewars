@@ -15,6 +15,6 @@ class EvenOdd {
        .replaceAll(/(^|[^a-zA-Z0-9])var\s/,'$1static def ')
        .replaceAll(/(^|[^a-zA-Z0-9])let\s/,'$1def ')
        .replaceAll(/(^|[^a-zA-Z0-9])const\s/,'$1final def ')
-       .replaceAll(/=>/,'->').replaceAll(/(^|[^\)]){}/,'$1[:]')
+       .replaceAll(/=>/,'->').replaceAll(/(^|[^\)])\{\}/,'$1[:]')
       ).toString();}}
 
