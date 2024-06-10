@@ -13,6 +13,6 @@ global.range=function(){
     }
     var x=Math.min(a[0]||0,a[1]||0);
     var y=Math.max(a[0]||0,a[1]||0);
-    return [...Array(y-x).keys()].map(z=>z+x);
+    return [...Array(y-x+1).keys()].map(z=>z+x);
 };
 
