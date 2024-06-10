@@ -6,4 +6,5 @@ Math.sum=function(){try{if(arguments.length==1){try{var s=arguments[0];if(typeof
 }
 Math.sum=function(){try{if(arguments.length==1){try{return[...arguments[0]].reduce((x,y)=>+x + +y,0);}catch(e){}}return [...arguments].reduce((x,y)=>+x + +y,0);}catch(e){return 0}};
 global.copy=function(x){return JSON.parse(JSON.stringify(x));}
+global.range=function(){if(arguments.length==1){return [...Array(arguments[0]).keys()]}};
 
