@@ -16,7 +16,9 @@ global.range=function(){
     }
     var x=Math.min(a[0]||0,a[1]||0);
     var y=Math.max(a[0]||0,a[1]||0);
-    return [...Array(y-x+1).keys()].map(z=>+z + +x);
+    var r=[...Array(y-x+1).keys()].map(z=>+z + +x);
+    if((a[1]||0)<(a[0]||0))return r.reverse();
+    return r;
 };
 global.len=function(x){return x.length??x.size??[...x].length;};
 
