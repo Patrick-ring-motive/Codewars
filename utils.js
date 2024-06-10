@@ -32,3 +32,6 @@ global.len=function(x){
   }
 };
 
+function t(x){return Number?Number(x):1*x;}
+function n(x){return BigInt?BigInt(x):parseFloat(x);}
+
