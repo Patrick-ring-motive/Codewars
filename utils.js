@@ -20,5 +20,15 @@ global.range=function(){
     if((a[1]||0)<(a[0]||0))return r.reverse();
     return r;
 };
-global.len=function(x){return x.length??x.size??[...x].length;};
+global.len=function(x){
+  try{
+    return x.length??x.size??[...x].length;
+  }catch(e){
+    var l = 0;
+    for(var i in x){
+        l++;
+    }
+    return l;
+  }
+};
 
