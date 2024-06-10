@@ -9,10 +9,14 @@ global.copy=function(x){return JSON.parse(JSON.stringify(x));}
 global.range=function(){
     var a=arguments;
     if(a.length==1){
-        return [...Array(a[0]).keys()]
+        if(a[0]<0){
+          return [...Array(Math.abs(a[0])).keys()].map(z=>-z);
+        }
+        return [...Array(a[0]).keys()].map(z=>+z);
     }
     var x=Math.min(a[0]||0,a[1]||0);
     var y=Math.max(a[0]||0,a[1]||0);
-    return [...Array(y-x+1).keys()].map(z=>z+x);
+    return [...Array(y-x+1).keys()].map(z=>+z + +x);
 };
+global.len=function(x){return x.length??x.size??[...x].length;};
 
