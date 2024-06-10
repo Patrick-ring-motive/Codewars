@@ -6,5 +6,13 @@ Math.sum=function(){try{if(arguments.length==1){try{var s=arguments[0];if(typeof
 }
 Math.sum=function(){try{if(arguments.length==1){try{return[...arguments[0]].reduce((x,y)=>+x + +y,0);}catch(e){}}return [...arguments].reduce((x,y)=>+x + +y,0);}catch(e){return 0}};
 global.copy=function(x){return JSON.parse(JSON.stringify(x));}
-global.range=function(){if(arguments.length==1){return [...Array(arguments[0]).keys()]}};
+global.range=function(){
+    var a=arguments;
+    if(a.length==1){
+        return [...Array(a[0]).keys()]
+    }
+    var x=Math.min(a[0]||0,a[1]||0);
+    var y=Math.max(a[0]||0,a[1]||0);
+    return [...Array(y-x).keys()].map(z=>z+x);
+};
 
