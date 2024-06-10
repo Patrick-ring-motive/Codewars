@@ -1,17 +1,43 @@
-function primeFactors(x, factors) {
-    while (x % 2n === 0n) {
-        factors.push(2n);
-        x = x / 2n;
-    }
+function newBigArr(){
 
-    for (let i = 3n; i * i <= x; i += 2n) {
-        while (x % i === 0n) {
-            factors.push(i);
-            x = x / i;
-        }
-    }
+                return {
 
-    if (x > 2n) {
-        factors.push(x);
-    }
+                                length:0n,
+
+                                push:function(x){
+
+                                                                this[this.length]=x;
+
+                                                                this.length++;
+
+                                                                return this;
+
+                                                },
+
+                                pop:function(){
+
+                                                                const x=this[this.length-1n];
+
+                                                                delete this[this.length-1n];
+
+                                                                this.length--;
+
+                                                                return x;
+
+                                                },
+
+                                get:function(x){
+
+                                                                return this[BigInt(x)];
+
+                                                },
+
+                                set:function(x,y){
+
+                                                                return this[BigInt(x)]=y;
+
+                                                }
+
+                                }
+
 }
