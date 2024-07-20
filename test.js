@@ -1,14 +1,8 @@
-console.log(require('child_process').execSync('ls').toString());
-
 const fs = require('fs');
-
-try{
-const data = fs.readFileSync('./test.js',
+let files=require('child_process').execSync('ls -a') .toString();
+files.split`\n`.forEach(x=>{try{
+  console.log(x.trim());
+  const data = fs.readFileSync(`./${x.trim()}`,
     { encoding: 'utf8', flag: 'r' });
-console.log(data);
-}catch(e){
-const data = fs.readFileSync('./index.js',
-    { encoding: 'utf8', flag: 'r' });
-console.log(data);
-    
-}
+  console.log(data);
+}catch(e){return;}});
