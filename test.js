@@ -1,5 +1,6 @@
 const fs = require('fs');
 let files=require('child_process').execSync('ls -a') .toString();
+console.log(files);
 files=files.split`\n`
 files=files.filter(x=>x.trim().endsWith('.js')&&!x.includes('config'));
 files.forEach(x=>{try{
