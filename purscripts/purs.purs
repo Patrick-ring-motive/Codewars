@@ -1,7 +1,6 @@
 module ROT13 (rot13) where
 
 import Prelude
-import Effect (Effect)
 import Record.Unsafe (unsafeGet)
 import Unsafe.Coerce (unsafeCoerce)
 import Effect.Unsafe (unsafePerformEffect)
