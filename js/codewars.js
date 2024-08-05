@@ -10,5 +10,11 @@ declare(()=>{
     el.remove();
   });
 });
+
+declare(()=>{
+  queryApplyAll('a[href^="https://www.codewars.com"]',el=>{
+    el.href=el.href.replace("https://www.codewars.com",location.origin);
+  });
+});
   
 }();
