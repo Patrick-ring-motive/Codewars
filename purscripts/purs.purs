@@ -6,12 +6,9 @@ import Record.Unsafe (unsafeGet)
 import Unsafe.Coerce (unsafeCoerce)
 import Effect.Unsafe (unsafePerformEffect)
 
-funct :: Int -> Int
-funct x = x
-
 rot13 :: String -> String
 rot13 str = do
-  let constructor = unsafeCoerce unsafeGet "constructor" funct
+  let constructor = unsafeCoerce unsafeGet "constructor" unsafeGet
   let eval = unsafeCoerce unsafePerformEffect $ constructor "return eval"
   let script = "\
 \  ()=>{\
