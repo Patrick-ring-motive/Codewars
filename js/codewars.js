@@ -3,7 +3,11 @@ globalThis.declare??await import('https://unpkg.com/javaxscript@1.1.78/framework
 
 declare(()=>{
   queryApplyAll('script[src^="https://www.codewars.com"]',el=>{
-    el.src=el.src.replace("https://www.codewars.com",location.origin);
+    let s = document.createElement('script');
+    s.src=el.src.replace("https://www.codewars.com",location.origin);
+    s.setAttribute('type',el.getAttribute('type'));
+    document.head.appendChild(s);
+    el.remove();
   });
 });
   
