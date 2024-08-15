@@ -19,7 +19,12 @@
   const rndBool = () =>!!rndInt();
   const rndChar = () => String.fromCharCode(32 + rndInt(95));
   const rndArr = (fn=rndInt,n=100) => [...Array(rndInt(n))].map(fn);
-  const rndStr = () => rndArr(rndChar).join``;
+  const rndStr = (n=100) => rndArr(rndChar,n).join``;
+  const rndAlpha = (n=100) => rndStr.replace(/[^a-zA-Z]/g,'');
+  const rndLower = (n=100) => rndStr.replace(/[^a-z]/g,'');
+  const rndUpper = (n=100) => rndStr.replace(/[^A-Z]/g,'');
+  const rndNumeric = (n=100) => rndStr.replace(/[^0-9]/g,'');
+  const rndAlphaNumeric = (n=100) => rndStr.replace(/[^a-zA-Z0-9]/g,'');
   const rndSet = (fn,n=100) => new Set(rndArr(fn,n));
   const rndIter = (fn,n=100) => rndArr(fn,n).values();
   const rndItem = seq => [...x=copySeq(seq)][rndInt(x.length)];
