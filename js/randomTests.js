@@ -27,4 +27,8 @@
   const rndAlphaNumeric = (n=100) => rndStr.replace(/[^a-zA-Z0-9]/g,'');
   const rndSet = (fn,n=100) => new Set(rndArr(fn,n));
   const rndIter = (fn,n=100) => rndArr(fn,n).values();
-  const rndItem = seq => [...x=copySeq(seq)][rndInt(x.length)];
+  const rndItem = (seq) =>{
+    let x = [...copySeq(seq)];
+    return x[rndInt(x.length)];
+  }
+  
