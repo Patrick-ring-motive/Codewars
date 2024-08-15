@@ -12,9 +12,9 @@
   const copyIter = (iter) => { 
       const arr = [...iter];
       const i = arr.values();
-      objDefProp(iter,"next",() => i.next.call(i));
-      objDefProp(iter,Symbol.iterator,() => i);
-      objDefProp(iter,"valueOf",() => i);
+      objDefProp(iter,"next",function next(){ return i.next.call(i,...arguments);});
+      objDefProp(iter,Symbol.iterator,function iterator(){ return i;});
+      objDefProp(iter,"valueOf",function valueOf(){return i;});
       return [...arr].values();
   }
   
