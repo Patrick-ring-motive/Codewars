@@ -1,8 +1,20 @@
+ /*Doing footguns properly*/
+  const objDefProp = function (obj, prop, def) {
+    return Object.defineProperty(obj, prop, {
+      value: def,
+      writable: true,
+      enumerable: false,
+      configurable: true
+    });
+  };
+  
   /*copy the iterator without destroying the original*/
   const copyIter = (iter) => { 
       const arr = [...iter];
       const i = arr.values();
-      iter.next = () => i.next.call(i);
+      objDefProp(iter,"next",() => i.next.call(i));
+      objDefProp(iter,Symbol.iterator,() => i);
+      objDefProp(iter,"valueOf",() => i);
       return [...arr].values();
   }
   
@@ -10,6 +22,7 @@
   const copySeq = (seq) => {
     if(typeof seq == 'string' || seq instanceof String) return `${seq}`;
     if(seq instanceof Set) return new Set(seq);
+    if(seq instanceof Array) return [...seq];
     if(seq instanceof [].values(/*Iterator*/).constructor) return copyIter(seq);
     return [...seq];
   }
