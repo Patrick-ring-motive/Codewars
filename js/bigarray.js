@@ -1,43 +1,43 @@
-function newBigArr(){
+function newBigArr() {
 
-                return {
+  return {
 
-                                length:0n,
+    length: 0n,
 
-                                push:function(x){
+    push: function(x) {
 
-                                                                this[this.length]=x;
+      this[this.length] = x;
 
-                                                                this.length++;
+      this.length++;
 
-                                                                return this;
+      return this;
 
-                                                },
+    },
 
-                                pop:function(){
+    pop: function() {
 
-                                                                const x=this[this.length-1n];
+      const x = this[this.length - 1n];
 
-                                                                delete this[this.length-1n];
+      delete this[this.length - 1n];
 
-                                                                this.length--;
+      this.length--;
 
-                                                                return x;
+      return x;
 
-                                                },
+    },
 
-                                get:function(x){
+    get: function(x) {
 
-                                                                return this[BigInt(x)];
+      return this[BigInt(x)];
 
-                                                },
+    },
 
-                                set:function(x,y){
+    set: function(x, y) {
 
-                                                                return this[BigInt(x)]=y;
+      return this[BigInt(x)] = y;
 
-                                                }
+    }
 
-                                }
+  }
 
 }

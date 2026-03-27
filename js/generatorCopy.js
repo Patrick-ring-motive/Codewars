@@ -1,14 +1,14 @@
-function copy(iter){
-  if(!iter.nativeNext){
-    iter.cache=[];
-    iter.place=0;
+function copy(iter) {
+  if (!iter.nativeNext) {
+    iter.cache = [];
+    iter.place = 0;
     iter.nativeNext = iter.next;
-    iter.next=function(){
-      if(iter.place<iter.cache.length){
+    iter.next = function() {
+      if (iter.place < iter.cache.length) {
         const x = iter.cache[iter.place];
         iter.place++;
         return x;
-      }else{
+      } else {
         const x = iter.nativeNext();
         iter.cache.push(x);
         return x;
@@ -17,17 +17,17 @@ function copy(iter){
   }
   const fork = [].values();
   fork.parent = iter;
-  fork.next = function(){
-    if(fork.len === undefined || fork.len >= fork.parent.cache.length){
+  fork.next = function() {
+    if (fork.len === undefined || fork.len >= fork.parent.cache.length) {
       const x = fork.parent.next();
       fork.parent.place--;
-      if(fork.len === undefined){
+      if (fork.len === undefined) {
         fork.len = fork.parent.cache.length;
-      }else{
+      } else {
         fork.len++;
       }
       return x;
-    }else{
+    } else {
       const x = fork.parent.cache[fork.len];
       fork.len++;
       return x;
